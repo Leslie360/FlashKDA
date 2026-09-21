@@ -4,7 +4,7 @@
 > GPU: NVIDIA A800-SXM4-80GB (SM80, Ampere)
 > CUDA: 12.2
 > PyTorch: 2.4+
-> flash_kda: dual-arch branch `dual-arch-sm80`
+> flash_kda: dual-arch branch `dual-arch-sm80-3way`
 
 ## Summary
 
@@ -24,6 +24,8 @@ D=128).
 |---|---|---|
 | `_flash_kda_fwd_recurrence_sm80` (K2) | 2.35 ms | 58.8% |
 | `_flash_kda_fwd_prepare_sm80` (K1) | 1.63 ms | 40.8% |
+
+> Breakdown samples are from a co-tenancy rerun (e2e ~4.0 ms); clean-environment e2e is 3.40 ms.
 
 > ncu is unavailable in the test environment (driver resource restricted);
 > PyTorch Profiler is used for the kernel-level breakdown.
@@ -76,4 +78,4 @@ launch code while the kernel only ever used 2/1).
 - `compute-sanitizer --tool memcheck`: **0 errors** on the full A800 shape,
   both `fixed` and `varlen`.
 - ncu/nsys remain unavailable in this environment (driver resource held,
-  `perf_event_paranoid=4`, no Nsight Systems). See `PROFILING_A800_REFRESH.md`.
+  `perf_event_paranoid=4`, no Nsight Systems).

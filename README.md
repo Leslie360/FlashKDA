@@ -66,6 +66,7 @@ Once installed, FlashKDA is auto-dispatched from `flash-linear-attention`'s `chu
 ## Performance
 
 See [BENCHMARK_H20.md](BENCHMARK_H20.md).
+See [BENCHMARK_A800.md](BENCHMARK_A800.md).
 
 ## Tests
 
